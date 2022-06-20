@@ -153,45 +153,6 @@ class Jobs(models.Model):
 
         return status
 
-
-    '''
-    def check_saved_jobs(self, user, link, filters=None, limit=5):
-        """Retrieve jobs from the DynamoDB. Can use filters formatted
-         for the search in the DB.
-         TODO: Search to be improved to avoid case-sensitive matching
-        Arguments:
-        filters: Dict {":title":"pattern_to_search_job_titles", ":tags":"tags_to_look_for_in_listings"}
-        limit: Number of jobs to display
-        """
-        try:
-            dynamodb = boto3.resource('dynamodb', region_name=AWS_REGION)
-            table = dynamodb.Table(JOBS_TABLE_SAVE)
-        except Exception as e:
-            logger.error(
-                'Error connecting to database table: ' + (e.fmt if hasattr(e, 'fmt') else '') + ','.join(e.args))
-            return None
-
-        # Apply query
-        #filters = user
-        #if filters is None:
-        #    rep = table.scan(Limit=limit)
-        #else:
-            #filter_expr = ["contains(title, :title)"]
-        rep = table.scan(Limit=limit,
-                        FilterExpression=Attr("user").eq(user) and Attr("link").eq(link))
-
-                        #FilterExpression=Key.eq(user),
-                        #ExpressionAttributeValues=filters)
-        #raise NotImplementedError("Job filtering hasn't been implemented yet.")
-
-        if rep['ResponseMetadata']['HTTPStatusCode'] == 200:
-            return True
-
-        logger.error('Error retrieving jobs from database. Reponse:'+ str(rep['ResponseMetadata']['HTTPStatusCode']))
-        return False
-    '''
-
-
     def get_saved_jobs(self, user, filters=None, limit=5):
         """Retrieve jobs from the DynamoDB. Can use filters formatted
          for the search in the DB.
