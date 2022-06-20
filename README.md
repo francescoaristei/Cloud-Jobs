@@ -1,6 +1,7 @@
 # CCBDA-Project
 
-Matching jobs by skills from CV
+Matching jobs by skills from CV.
+In-depth explanation at: [Report](https://github.com/francescoaristei/CCBDA-Project-CloudJobs/blob/main/CCBDA_Project.pdf)
 
 ## Main Branch
 
