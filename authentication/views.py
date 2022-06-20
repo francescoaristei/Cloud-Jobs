@@ -137,9 +137,3 @@ def logout(request):
 
 def login_page(request):
     return redirect('login')
-
-
-#def get_saved_jobs(request):
-#    jobs = Jobs()
-#    context = {"jobs":jobs.get_saved_jobs(request.user)}
-#    return render(request, 'profile.html', context)
